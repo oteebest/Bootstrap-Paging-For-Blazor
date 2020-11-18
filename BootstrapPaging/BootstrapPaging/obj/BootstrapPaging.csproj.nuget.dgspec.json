@@ -5,10 +5,10 @@
   },
   "projects": {
     "C:\\OtherProjects\\Bootstrap Paging\\Bootstrap-Paging-For-Blazor\\BootstrapPaging\\BootstrapPaging\\BootstrapPaging.csproj": {
-      "version": "1.0.0",
+      "version": "1.0.0.1",
       "restore": {
         "projectUniqueName": "C:\\OtherProjects\\Bootstrap Paging\\Bootstrap-Paging-For-Blazor\\BootstrapPaging\\BootstrapPaging\\BootstrapPaging.csproj",
-        "projectName": "BootstrapPaging",
+        "projectName": "BlazorBootstrapPaging",
         "projectPath": "C:\\OtherProjects\\Bootstrap Paging\\Bootstrap-Paging-For-Blazor\\BootstrapPaging\\BootstrapPaging\\BootstrapPaging.csproj",
         "packagesPath": "C:\\Users\\oteeb\\.nuget\\packages\\",
         "outputPath": "C:\\OtherProjects\\Bootstrap Paging\\Bootstrap-Paging-For-Blazor\\BootstrapPaging\\BootstrapPaging\\obj\\",

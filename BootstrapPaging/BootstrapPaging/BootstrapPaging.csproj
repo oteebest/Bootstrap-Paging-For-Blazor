@@ -3,6 +3,16 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <RazorLangVersion>3.0</RazorLangVersion>
+    <Authors>Ziregbe Otee</Authors>
+    <Description>This package helps you with paging for your blazor application when your api or call to your datastore returns data in paged format.</Description>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <RepositoryUrl>https://github.com/oteebest/Bootstrap-Paging-For-Blazor</RepositoryUrl>
+    <PackageTags>Bootstrap, Paging, Blazor</PackageTags>
+    <PackageId>BlazorBootstrapPaging</PackageId>
+    <Product>BlazorBootstrapPaging</Product>
+    <AssemblyVersion>1.0.0.1</AssemblyVersion>
+    <FileVersion>1.0.0.1</FileVersion>
+    <Version>1.0.0.1</Version>
   </PropertyGroup>
 
 

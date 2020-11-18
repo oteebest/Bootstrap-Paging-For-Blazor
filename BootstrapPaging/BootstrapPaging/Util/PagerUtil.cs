@@ -7,56 +7,73 @@ namespace BootstrapPaging.Util
 {
     public class PagerUtil
     {
-        public static PagerModel GetPagerParams(int TotalSize, int PageSize, int PageNumber, int MaximumPages)
+        public static PagerModel GetPagerParams(int totalSize, int pageSize, 
+            int pageNumber, int maximuimPagerCountForDisplay,bool updatePager,
+            int currentPagerStartIndex, int currentPagerEndIndex,bool currentNextEnabled,bool currentPreviousEnabled)
         {
-            int startIndex = 0;
+            int currentIndex = pageNumber - 1;
 
-            int endIndex = 0;
-
-            int totalPages = 0;
-
-            int currentIndex = PageNumber - 1;
-
-            if (TotalSize > 0)
+            if (updatePager)
             {
-                totalPages = (TotalSize / PageSize) + ((TotalSize % PageSize) > 1 ? 1 : 0);
+                int startIndex = 0;
 
-                if (totalPages <= MaximumPages)
+                int endIndex = 0;
+
+                int totalPages = 0;
+               
+                if (totalSize > 0)
                 {
-                    startIndex = 0;
-                    endIndex = totalPages - 1;
-                }
-                else
-                {
-                    //  XXX + YYY = MaximumPages;
-                    if (PageNumber > MaximumPages)
+                    totalPages = (totalSize / pageSize) + ((totalSize % pageSize) > 1 ? 1 : 0);
+
+                    if (totalPages <= maximuimPagerCountForDisplay)
                     {
-                        startIndex = currentIndex - MaximumPages + 1;
-
-                        endIndex = currentIndex;
+                        startIndex = 0;
+                        endIndex = totalPages - 1;
                     }
                     else
                     {
-                        startIndex = 0;
+                        //  XXX + YYY = MaximumPages;
+                        if (pageNumber > maximuimPagerCountForDisplay)
+                        {
+                            startIndex = currentIndex - maximuimPagerCountForDisplay + 1;
 
-                        endIndex = MaximumPages - 1;
+                            endIndex = currentIndex;
+                        }
+                        else
+                        {
+                            startIndex = 0;
+
+                            endIndex = maximuimPagerCountForDisplay - 1;
+                        }
+
+
                     }
-
 
                 }
 
+                return new PagerModel
+                {
+                    CurrentPagerIndex = currentIndex,
+                    PagerStartIndex = startIndex,
+                    PagerEndIndex = endIndex,
+                    NextEnabled = endIndex + 1 < totalPages,
+                    PreviousEnabled = startIndex > 0,
+
+                };
             }
-
-
-            return new PagerModel
+            else
             {
-                CurrentIndex = currentIndex,
-                PagerStartIndex = startIndex,
-                PagerEndIndex = endIndex,
-                NextEnabled = endIndex + 1 < totalPages,
-                PreviousEnabled = startIndex > 0,
+                return new PagerModel
+                {
+                    CurrentPagerIndex = currentIndex,
+                    PagerStartIndex = currentPagerStartIndex,
+                    PagerEndIndex = currentPagerEndIndex,
+                    NextEnabled = currentNextEnabled,
+                    PreviousEnabled = currentPreviousEnabled,
 
-            };
+                };
+            }
+            
 
         }
 

@@ -8,6 +8,6 @@ namespace BootstrapPaging.Models
     {
         public int PageNumber { get; set; }
 
-        public bool ChangePager { get; set; }
+        public bool UpdatePager { get; set; }
     }
 }

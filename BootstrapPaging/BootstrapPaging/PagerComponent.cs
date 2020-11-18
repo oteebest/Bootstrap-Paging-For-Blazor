@@ -44,13 +44,13 @@ namespace BootstrapPaging
 
 
 
-        private async Task LoadData(int pageNumber, bool changePager)
+        private async Task LoadData(int pageNumber, bool updatePager)
         {
 
             await OnPageCallBack.InvokeAsync(new PageClickModel
             {
                 PageNumber = pageNumber,
-                ChangePager = changePager
+                UpdatePager = updatePager
             });
         }
 

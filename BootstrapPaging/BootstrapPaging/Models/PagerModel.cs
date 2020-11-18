@@ -9,12 +9,12 @@ namespace BootstrapPaging.Models
         public int PagerStartIndex { get; set; }
         public int PagerEndIndex { get; set; }
 
-        public int CurrentIndex { get; set; }
+        public int CurrentPagerIndex { get; set; }
 
         public bool NextEnabled { get; set; }
         public bool PreviousEnabled { get; set; }
 
-        public bool RefreshPager { get; set; } = true;
+
     }
 
 }
