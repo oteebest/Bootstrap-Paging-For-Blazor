@@ -23,7 +23,7 @@ namespace BootstrapPaging.Util
                
                 if (totalSize > 0)
                 {
-                    totalPages = (totalSize / pageSize) + ((totalSize % pageSize) > 1 ? 1 : 0);
+                    totalPages = (totalSize / pageSize) + ((totalSize % pageSize) > 0 ? 1 : 0);
 
                     if (totalPages <= maximuimPagerCountForDisplay)
                     {

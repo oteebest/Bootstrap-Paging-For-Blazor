@@ -41,9 +41,6 @@ namespace BootstrapPaging
         }
 
 
-
-
-
         private async Task LoadData(int pageNumber, bool updatePager)
         {
 

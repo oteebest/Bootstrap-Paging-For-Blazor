@@ -1,0 +1,115 @@
+﻿@page "/"
+
+@inject HttpClient Http
+
+<h1>Dogs</h1>
+
+<p>This component show list of dogs from paged api.</p>
+
+@if (Items == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Dog Name</th>
+               
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var Item in Items)
+            {
+                <tr>
+                    <td>@Item.Name</td>
+                   
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <PagerComponent CurrentIndex="CurrentIndex" OnPageCallBack="Page" PagerEndIndex="PagerEndIndex" PagerStartIndex="PagerStartIndex" PagerEnableNext="PagerEnableNext" PagerEnablePrevious="PagerEnablePrevious" PageNumberParam="PageNumber" TotalSizeParam="TotalSize" PageSizeParam="PageSize"></PagerComponent>
+
+
+}
+
+@code {
+
+    public int TotalSize { get; set; }
+    public int PageNumber { get; set; }
+    public int PageSize { get; set; }
+    public int CurrentIndex { get; set; }
+    public int PagerEndIndex { get; set; }
+    public int PagerStartIndex { get; set; }
+    public bool PagerEnableNext { get; set; }
+    public bool PagerEnablePrevious { get; set; }
+    // initialise to true so on initialisation pager is updated
+    public bool UpdatePager { get; set; } = true;
+    public List<Dog> Items { get; set; }
+
+    //i want to display a maximum of 10 pager count ( E.g from 1 - 10 ), you can set yours to what you feel is appropriate for your data.
+    int maximumPagesCountForDisplay = 3;
+
+    // you can make yours any value to suit your data size;
+    int pageSize = 5;
+
+    Data data = new Data();
+
+    protected override async Task OnInitializedAsync()
+    {
+
+        //get data from server or store
+        var response = data.GetItems(1, pageSize);
+
+        Items = response.Items;
+
+        // for initialisation always set update pager to false. It is used for changing pager counter when neccessary.
+        UpdatePagerParams(response.TotalSize, response.PageSize, response.PageNumber,
+            maximumPagesCountForDisplay, UpdatePager);
+
+    }
+
+    private void UpdatePagerParams(int totalSize, int pageSize, int pageNumber, int maximuimPagerCountForDisplay, bool updatePager)
+    {
+        this.TotalSize = totalSize;
+
+        this.PageSize = pageSize;
+
+        this.PageNumber = pageNumber;
+
+        var pagerModel = BootstrapPaging.Util.PagerUtil.GetPagerParams(TotalSize, PageSize, PageNumber, maximuimPagerCountForDisplay, updatePager,
+            PagerStartIndex, PagerEndIndex, PagerEnableNext, PagerEnablePrevious);
+
+        CurrentIndex = pagerModel.CurrentPagerIndex;
+        PagerEnableNext = pagerModel.NextEnabled;
+        PagerEndIndex = pagerModel.PagerEndIndex;
+        PagerStartIndex = pagerModel.PagerStartIndex;
+        PagerEnablePrevious = pagerModel.PreviousEnabled;
+
+
+    }
+
+    private async Task Page(BootstrapPaging.Models.PageClickModel model)
+    {
+        // pager component tells parent component if pager counters should be updated;
+
+        UpdatePager = model.UpdatePager;
+
+        var response = data.GetItems(model.PageNumber, pageSize);
+
+        Items = response.Items;
+
+        UpdatePagerParams(response.TotalSize, response.PageSize,
+             response.PageNumber, maximumPagesCountForDisplay, UpdatePager);
+
+        StateHasChanged();
+
+    }
+
+
+
+
+    
+}

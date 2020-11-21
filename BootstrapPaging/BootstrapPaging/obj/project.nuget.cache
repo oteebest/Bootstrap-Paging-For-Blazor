@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "hBvflW2+tjx4P+p8nI61zX9mcoS23Hf3icqm/+mGXaUT8kmt9gOquvPeBIkhNSPfxv14rxHHuMT0xdeEz2BwMQ==",
+  "dgSpecHash": "doO+/gpL/3HuKgH8LEhx2dMwovd57fSNdG3vH+OK+mvd7xVtnvaPaYiKlQP6j26yUgYUzR2BFDz/MBlgA+FUsQ==",
   "success": true,
   "projectFilePath": "C:\\OtherProjects\\Bootstrap Paging\\Bootstrap-Paging-For-Blazor\\BootstrapPaging\\BootstrapPaging\\BootstrapPaging.csproj",
   "expectedPackageFiles": [

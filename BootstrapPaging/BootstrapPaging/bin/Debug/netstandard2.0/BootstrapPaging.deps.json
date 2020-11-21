@@ -22,7 +22,7 @@
   },
   "targets": {
     ".NETStandard,Version=v2.0": {
-      "BootstrapPaging/1.0.0.1": {
+      "BootstrapPaging/1.0.0.2": {
         "dependencies": {
           "Microsoft.AspNetCore.Components": "3.1.8",
           "Microsoft.AspNetCore.Components.Web": "3.1.8",
@@ -879,7 +879,7 @@
       }
     },
     ".NETStandard,Version=v2.0/": {
-      "BootstrapPaging/1.0.0.1": {
+      "BootstrapPaging/1.0.0.2": {
         "dependencies": {
           "Microsoft.AspNetCore.Components": "3.1.8",
           "Microsoft.AspNetCore.Components.Web": "3.1.8",
@@ -1232,7 +1232,7 @@
     }
   },
   "libraries": {
-    "BootstrapPaging/1.0.0.1": {
+    "BootstrapPaging/1.0.0.2": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
