@@ -49,10 +49,10 @@ else
     public bool UpdatePager { get; set; } = true;
     public List<Dog> Items { get; set; }
 
-    //i want to display a maximum of 10 pager count ( E.g from 1 - 10 ), you can set yours to what you feel is appropriate for your data.
+    //i want to display a maximum of 3 page counter on the pager ( E.g from 1-3 ), you can set yours to what you feel is appropriate for your data.
     int maximumPagesCountForDisplay = 3;
 
-    // you can make yours any value to suit your data size;
+    // i want to get 5 items per page from the server. make yours any value to suit your data size and display preference;
     int pageSize = 5;
 
     Data data = new Data();
